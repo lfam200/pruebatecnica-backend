@@ -33,6 +33,14 @@ npm i
 npm start
 ```
 
+## Endpoints
+
+```sh
+http//localhost:3001/clientes GET
+http//localhost:3001/clientes POST
+http//localhost:3001/clientes/promedio-edad GET
+```
+
 Verifique el despliegue navegando a la dirección de su servidor en su navegador preferido.
 
 ```sh
