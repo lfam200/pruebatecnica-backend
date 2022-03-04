@@ -41,6 +41,17 @@ http//localhost:3001/clientes POST
 http//localhost:3001/clientes/promedio-edad GET
 ```
 
+## Variables de Entorno
+
+```sh
+DB_USER=
+DB_PASSWORD=
+DB_HOST=
+DB_PORT=
+DB_NAME=
+NODE_ENV="local" || "production"
+```
+
 Verifique el despliegue navegando a la dirección de su servidor en su navegador preferido.
 
 ```sh
