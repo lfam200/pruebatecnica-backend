@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const {
   getClientes,
-  getCliente,
   postCliente,
   getPromEdad,
 } = require("../controllers/clientes");
