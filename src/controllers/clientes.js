@@ -1,5 +1,6 @@
 const { Cliente } = require("../db.js");
 
+//Obtener todos los clientes
 exports.getClientes = async (req, res) => {
   try {
     let clientes = await Cliente.findAll();
@@ -21,30 +22,7 @@ exports.getClientes = async (req, res) => {
   }
 };
 
-exports.getCliente = async (req, res) => {
-  try {
-    const { id } = req.params;
-    console.log(id);
-    let cliente = await Cliente.findByPk(id);
-    let result;
-
-    if (cliente) {
-      result = {
-        id: cliente.id,
-        nombre: cliente.nombre,
-        apellido: cliente.apellido,
-        nacimiento: cliente.fechaNacimiento,
-        edad: getEdad(cliente.fechaNacimiento),
-      };
-      res.status(200).send(result);
-    } else {
-      res.status(404).send("El cliente no existe");
-    }
-  } catch (err) {
-    return "Se ha producido un error al obtener los datos, por favor, inténtelo de nuevo.";
-  }
-};
-
+//Crear clientes en DB
 exports.postCliente = async (req, res) => {
   try {
     const { nombre, apellido, fechaNacimiento } = req.body;
@@ -60,6 +38,7 @@ exports.postCliente = async (req, res) => {
   }
 };
 
+//Obtener promedio de edad de clientes, valor redondeado
 exports.getPromEdad = async (req, res) => {
   try {
     let clientes = await Cliente.findAll();
@@ -80,7 +59,7 @@ exports.getPromEdad = async (req, res) => {
   }
 };
 
-//Utils
+//Utilitarios: Obtener edad a partir de fecha de nacimiento
 const getEdad = (dateString) => {
   let hoy = new Date();
   let fechaNacimiento = new Date(dateString);

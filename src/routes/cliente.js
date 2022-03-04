@@ -7,9 +7,8 @@ const {
 } = require("../controllers/clientes");
 const server = Router();
 
-server.get("/", getClientes);
-server.get("/cliente/:id", getCliente);
-server.get("/promedio-edad", getPromEdad);
-server.post("/", postCliente);
+server.post("/", postCliente); // API #1: Crear cliente
+server.get("/promedio-edad", getPromEdad); // API #2: Promedio de edad de clientes
+server.get("/", getClientes); //  API #3: Lista de clientes
 
 module.exports = server;
